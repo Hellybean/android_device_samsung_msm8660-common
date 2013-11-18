@@ -107,11 +107,12 @@ BOARD_SEPOLICY_UNION += \
     keystore.te \
     kickstart.te \
     mediaserver.te \
-    nfc.te \
     rild.te \
     surfaceflinger.te \
     system.te \
     ueventd.te \
+    untrusted_app.te \
+    vold.te \
     wpa.te \
     wpa_socket.te
 
