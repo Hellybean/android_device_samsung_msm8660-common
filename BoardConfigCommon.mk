@@ -103,6 +103,7 @@ BOARD_SEPOLICY_UNION += \
     rild.te \
     surfaceflinger.te \
     system.te \
+    te_macros \
     ueventd.te \
     untrusted_app.te \
     vold.te \
