@@ -17,6 +17,7 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Permissions
 PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
     frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
@@ -66,7 +67,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # RIL Class
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.ril_class=SamsungQualcommRIL
+    ro.telephony.ril_class=SamsungMSM8660RIL
 
 # Ramdisk
 PRODUCT_PACKAGES += \
@@ -83,11 +84,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.usb.default \
-    audio_policy.conf \
+    audio.r_submix.default \
     audio_policy.msm8660 \
     audio.primary.msm8660 \
     libaudio-resampler \
     libaudioutils
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -158,10 +162,6 @@ PRODUCT_PACKAGES += \
 # Package generation
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/test_radio_version.sh:/system/etc/test_radio_version.sh
-
-# Power HAL
-PRODUCT_PACKAGES += \
-    power.msm8660
 
 # QRNGD
 PRODUCT_PACKAGES += \
