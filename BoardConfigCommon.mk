@@ -34,6 +34,7 @@ TARGET_QCOM_AUDIO_VARIANT := caf
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_BLUEDROID_VENDOR_CONF := device/samsung/msm8660-common/bluetooth/vnd_msm8660.txt
+BOARD_BLUETOOTH_USES_HCIATTACH_PROPERTY := false
 
 # Camera
 BOARD_CAMERA_USE_MM_HEAP := true
@@ -56,7 +57,7 @@ TARGET_NO_INITLOGO := true
 TARGET_QCOM_DISPLAY_VARIANT := caf
 
 # GPS
-BOARD_HAVE_NEW_QC_GPS := true
+TARGET_NO_RPC := true
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
@@ -64,6 +65,9 @@ TARGET_PROVIDES_LIBLIGHT := true
 # Media
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 TARGET_QCOM_MEDIA_VARIANT := caf
+
+# Power
+TARGET_USES_CM_POWERHAL := true
 
 # Qualcomm support
 COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
@@ -91,7 +95,6 @@ BOARD_SEPOLICY_UNION += \
     domain.te \
     drmserver.te \
     file_contexts \
-    files \
     file.te \
     hci_init.te \
     healthd.te \
@@ -102,8 +105,6 @@ BOARD_SEPOLICY_UNION += \
     mediaserver.te \
     rild.te \
     surfaceflinger.te \
-    system.te \
-    te_macros \
     ueventd.te \
     untrusted_app.te \
     vold.te \
